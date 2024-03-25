@@ -1,0 +1,35 @@
+<div>
+    <div class="col text-end">
+        <a [routerLink]="'/employees/add-employee'" class="btn btn-secondary">Add Employee</a>
+    </div>
+</div>
+<div *ngIf="employees">
+    <table class="table border ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>
+                    <a [routerLink]="'/employees/' + employee.id">
+                        <span class="fas fa-pencil-alt bg-light text-secondary"></span>
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a>
+                        <span (click)="deleteEmployee()"
+                            class="fas fa-trash bg-light text-secondary margin-left-20 cursor-pointer"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="div" *ngIf="!employees">
+    <h6>No Data Found</h6>
+</div>

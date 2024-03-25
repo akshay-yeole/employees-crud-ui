@@ -1,0 +1,14 @@
+<div class="container bg-light">
+    <div class="bg-light h5">Add Employee</div>
+    <div class="col-3" *ngIf="employee">
+        <form #myForm="ngForm" >
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input placeholder="employee name" type="text" [(ngModel)]="employee.name" name="name" class="form-control">
+            </div>
+            <div class="mb-3">
+                <button type="button" (click)="saveEmployee()" class="btn btn-secondary">Save</button>
+            </div>    
+        </form>
+    </div>
+</div>
