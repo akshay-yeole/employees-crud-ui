@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { AddHeaderInterceptor } from './core/common/add-header.interceptor';
 import { LogResponseInterceptor } from './core/common/log-response.interceptor';
 import { CacheInterceptor } from './core/common/cache.interceptor';
+import { ErrorHandlerService } from './core/services/errorhandler.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,9 @@ import { CacheInterceptor } from './core/common/cache.interceptor';
     FormsModule
   ],
   providers: [
+    {
+      provide : ErrorHandler, useClass : ErrorHandlerService
+    },
     {
       provide : HTTP_INTERCEPTORS, useClass : AddHeaderInterceptor,multi:true
     },

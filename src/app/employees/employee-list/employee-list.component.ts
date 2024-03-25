@@ -15,6 +15,7 @@ export class EmployeeListComponent {
   constructor(private employeeService: EmployeeService, private route : ActivatedRoute) {}
   
   ngOnInit(): void {
+    throw new Error('Something happened');
     this.getAllEmployeesUsingResolver();
     //this.getAllEmployees();
   }
